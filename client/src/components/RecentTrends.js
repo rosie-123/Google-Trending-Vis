@@ -18,7 +18,7 @@ const RecentTrends = () => {
   const [sliderVal, setSliderVal] = useState(15);
   const [termsDict, setTermsDict] = useState({});
   const [dateDict, setDateDict] = useState(undefined);
-  
+
   useEffect(() => {
     fetch("http://localhost:9000/trends")
       .then((res) => res.json())
@@ -45,7 +45,28 @@ const RecentTrends = () => {
   }, []);
   const handleSlide = (event, newValue) => {
     setSliderVal(newValue);
-    // TODO set sliding animation
+    for (const date of Object.keys(termsDict)) {
+      if (
+        moment(initStr)
+          .subtract(15 - newValue, "days")
+          .format("YYYY-MM-DD") === moment(date).format("YYYY-MM-DD")
+      ) {
+        const cloudData = [];
+        Object.keys(termsDict[date]).forEach((key) => {
+          const formattedDict = {};
+          let searchVolumn = termsDict[date][key].slice(0, -1);
+          searchVolumn =
+            searchVolumn.slice(-1) === "M"
+              ? searchVolumn.slice(0, -1) + "0"
+              : searchVolumn.slice(0, -1);
+          formattedDict["text"] = key;
+          formattedDict["value"] = Number(searchVolumn);
+          cloudData.push(formattedDict);
+        });
+        setDateDict(cloudData);
+        break;
+      }
+    }
   };
   const fontSizeMapper = (word) => Math.log2(word.value) * 5;
   const classes = useStyles();
@@ -72,7 +93,12 @@ const RecentTrends = () => {
             {initStr}
           </Moment>
           {dateDict ? (
-            <WordCloud width={450} height={350} data={dateDict} fontSizeMapper={fontSizeMapper} />
+            <WordCloud
+              width={550}
+              height={350}
+              data={dateDict}
+              fontSizeMapper={fontSizeMapper}
+            />
           ) : (
             <React.Fragment>
               <Typography>The content is loading ...</Typography>
