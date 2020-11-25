@@ -15,8 +15,8 @@ const googleTrends = require("google-trends-api");
 router.get("/", (req, res, next) => {
   let aggregatedTerms = {};
   let offsetList = []
-  for (i = 0; i < 15; i++) {
-    offsetList[i] = i;
+  for (i = 1; i < 15; i++) {
+    offsetList[i - 1] = i;
   }
   for (const offset of offsetList) {
     dateStr = moment().subtract(offset, "days").format("YYYY-MM-DD");
@@ -35,8 +35,7 @@ router.get("/", (req, res, next) => {
         }
         aggregatedTerms[res["default"]["trendingSearchesDays"][0]["formattedDate"]] = dailySearchDict
       }).then(() => {
-        if (Object.keys(aggregatedTerms).length == 15) {
-          console.log(aggregatedTerms);
+        if (Object.keys(aggregatedTerms).length == 14) {
           res.send(aggregatedTerms);
         }
       })
