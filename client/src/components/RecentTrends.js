@@ -12,7 +12,7 @@ import {
 import WordCloud from "react-d3-cloud";
 import { makeStyles } from "@material-ui/core/styles";
 
-const RecentTrends = () => {
+const RecentTrends = ({ getSingleQuery }) => {
   const today = new Date();
   const initStr = moment(new Date()).subtract(1, "days").format("YYYY-MM-DD");
   const [sliderVal, setSliderVal] = useState(15);
@@ -70,6 +70,10 @@ const RecentTrends = () => {
   };
   const fontSizeMapper = (word) => Math.log2(word.value) * 5;
   const classes = useStyles();
+  const singleWordQuery = (word) => {
+    const query = word["text"];
+    getSingleQuery(query)
+  };
   return (
     <React.Fragment>
       <Card className={classes.root}>
@@ -98,6 +102,7 @@ const RecentTrends = () => {
               height={350}
               data={dateDict}
               fontSizeMapper={fontSizeMapper}
+              onWordClick={(word) => singleWordQuery(word)}
             />
           ) : (
             <React.Fragment>
