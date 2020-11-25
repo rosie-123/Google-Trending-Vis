@@ -20,7 +20,6 @@ router.get("/", (req, res, next) => {
   }
   for (const offset of offsetList) {
     dateStr = moment().subtract(offset, "days").format("YYYY-MM-DD");
-    console.log(dateStr);
     googleTrends
       .dailyTrends({
         trendDate: new Date(dateStr),
@@ -34,12 +33,15 @@ router.get("/", (req, res, next) => {
             dailySearchDict[search["title"]["query"]] = search["formattedTraffic"];
           })
         }
-        // console.log(dailySearchDict)
         aggregatedTerms[res["default"]["trendingSearchesDays"][0]["formattedDate"]] = dailySearchDict
-      }).catch((error) => console.log(error));
+      }).then(() => {
+        if (Object.keys(aggregatedTerms).length == 15) {
+          console.log(aggregatedTerms);
+          res.send(aggregatedTerms);
+        }
+      })
+      .catch((error) => console.log(error));
   }
-  console.log(aggregatedTerms)
-  res.send('hi')
   //   googleTrends
   //     .dailyTrends({ trendDate: new Date("2020-11-20"), geo: "US" })
   //     .then((result) => res.send(result))
