@@ -20,6 +20,7 @@ const theme = createMuiTheme({
 function App() {
   const [singleQuery, setSingleQuery] = useState("Black Friday");
   const getSingleQuery = (term) => {
+    console.log(term, "is searched")
     setSingleQuery(term);
   };
   return (
