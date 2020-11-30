@@ -5,6 +5,7 @@ import RecentTrends from "./components/RecentTrends";
 import OneTermTrend from "./components/OneTermTrend";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   typography: {
@@ -18,16 +19,16 @@ const theme = createMuiTheme({
   },
 });
 function App() {
+  const classes = useStyles();
   const [singleQuery, setSingleQuery] = useState("Black Friday");
   const getSingleQuery = (term) => {
-    console.log(term, "is searched")
     setSingleQuery(term);
   };
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <Header />
-        <div>
+        <div className={classes.mainPanel}>
           <RecentTrends getSingleQuery={getSingleQuery} />
           <OneTermTrend term={singleQuery} />
         </div>
@@ -35,5 +36,14 @@ function App() {
     </ThemeProvider>
   );
 }
+
+const useStyles = makeStyles({
+  mainPanel: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'left',
+  }
+});
 
 export default App;

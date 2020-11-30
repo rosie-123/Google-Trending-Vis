@@ -41,9 +41,5 @@ router.get("/", (req, res, next) => {
       })
       .catch((error) => console.log(error));
   }
-  //   googleTrends
-  //     .dailyTrends({ trendDate: new Date("2020-11-20"), geo: "US" })
-  //     .then((result) => res.send(result))
-  //     .catch((err) => console.log("promise rejected"));
 });
 module.exports = router;
