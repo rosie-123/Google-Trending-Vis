@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import RecentTrends from "./components/RecentTrends";
 import OneTermTrend from "./components/OneTermTrend";
+import DecadeTop from "./components/DecadeTop";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { makeStyles } from "@material-ui/core/styles";
@@ -31,6 +32,9 @@ function App() {
         <div className={classes.mainPanel}>
           <RecentTrends getSingleQuery={getSingleQuery} />
           <OneTermTrend term={singleQuery} />
+        </div>
+        <div className={classes.mainPanel}>
+          <DecadeTop />
         </div>
       </div>
     </ThemeProvider>
