@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Tabs, Tab, Box, Card, CardContent, CardHeader, CardActionArea, CardMedia } from "@material-ui/core";
+import { Typography, Tabs, Tab, Box, Card, CardContent, CardHeader, CardActionArea, CardMedia,Divider } from "@material-ui/core";
 import { TabContext } from '@material-ui/lab';
 import disney from '../images/disney.jpg';
 import ipad from '../images/ipad.jpg';
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 2,
         backgroundColor: theme.palette.background.paper,
         display: 'flex',
-        // height: 1000
+        // height: 400
     },
     tabs: {
         borderRight: `1px solid ${theme.palette.divider}`,
@@ -66,6 +66,14 @@ const useStyles = makeStyles((theme) => ({
 
     card: {
         width: 540,
+        overflow:'auto',
+        border: "none",
+        boxShadow: "none",
+
+    },
+
+    content:{
+        // overflow: "auto",
     },
 }));
 
@@ -102,6 +110,7 @@ export default function DecadeTop() {
             <Card>
             <CardHeader title="Top Search Terms of the Past Decade"
                         subheader="How was the world before 2020?"/>
+            <Divider />
             <TabPanel value={value} index={0}>
                 <Card className={classes.card}>
                     <CardHeader
@@ -117,12 +126,12 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="2010: iPad"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                             People were falling in love with Apple and catching Bieber Fever in 2010. iPad and Justin Bieber were Google's fastest-rising search terms that year.
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                             <p>The iPad, which was released by Apple in 2010, was <a href="https://archive.google.com/intl/en/press/zeitgeist2010/regions/us/" style={{color:"black"}} target="_blank" rel="nofollow noopener">Google's fasted rising search query</a>&nbsp;that year. Also new on the scene was Justin Bieber, who released his first studio album in 2010 and was the highest-trending person on Google's list.</p>
                             </Typography>
@@ -147,14 +156,14 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="2011: Rebecca Black "
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                             Singer Rebecca Black in 2011.
 (GETTY)
 
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                             <p>In the early part of the decade,13-year-old&nbsp;<span class="link"><a href="https://www.cbsnews.com/news/rebecca-blacks-friday-taken-off-youtube-today/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Rebecca Black</a></span> became a music sensation in what was then a whole new way. The teen released a music video for her song <a href="https://www.youtube.com/watch?v=kfVsfOSbJY0" style={{color:"black"}} target="_blank" rel="nofollow noopener">"Friday" on YouTube</a> and it took the world by storm. The repetitive tune went viral and became an ear worm stuck in the heads of millions of people.</p>
                             </Typography>
@@ -181,13 +190,13 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="Whitney Houston"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                             Whitney Houston performs on October 3, 2009, in Freiburg, southern Germany. 
 (GETTY)
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                             <p>Singer <a href="https://archive.google.com/zeitgeist/2012/#united-states/overall" style={{color:"black"}} target="_blank" rel="nofollow noopener">Whitney Houston</a> passed away at the age of 48 in 2012, and topped Google's list for searches that year. <span class="link"><a href="https://www.cbsnews.com/news/singer-whitney-houston-dies-at-48/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Houston ruled as pop music's queen</a></span>&nbsp;until her majestic voice and regal image were ravaged by drug use, erratic behavior and a tumultuous marriage to singer Bobby Brown.&nbsp;</p>
                             </Typography>
@@ -212,12 +221,12 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="Paul Walker"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                             Paul Walker, who is known for his role in the "Fast and the Furious" film series, died in a car crash in 2013.
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                             <p><span class="link"><a href="https://www.cbsnews.com/news/paul-walker-fast-and-furious-star-dead-in-fiery-car-crash/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Actor Paul Walker</a></span>, who was best known for his role as Brian O'Conner in the "Fast and Furious" films, was killed in a car crash north of Los Angeles in November 2013 at the age of 40. Walker's name <a href="https://www.forbes.com/sites/amadoudiallo/2013/12/17/google-lists-top-searches-for-2013/" style={{color:"black"}} target="_blank" rel="nofollow noopener">topped Google's list of search terms in the U.S.</a> that year, according to&nbsp;<a href="https://www.npr.org/sections/thetwo-way/2013/12/17/251948000/paul-walker-boston-bombing-among-top-2013-google-searches" style={{color:"black"}} target="_blank" rel="nofollow noopener">several news outlets</a>&nbsp;that reported on the list at the time.</p>
                             </Typography>
@@ -243,13 +252,13 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="Robin Williams"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Robin Williams died at age 57 in August 2014. He was the top trending search in Google that year.
                                 (GETTY)
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                                 <p>2014 saw <span class="link"><a href="https://www.cbsnews.com/news/actor-robin-williams-dead-at-63-apparent-suicide/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">the loss of Robin Williams</a></span>, who died by suicide in August. The actor&nbsp;<a href="https://trends.google.com/trends/yis/2014/US/" style={{color:"black"}} target="_blank" rel="nofollow noopener">was the fastest rising search term</a>&nbsp;in the U.S. that year.</p>
                             </Typography>
@@ -278,13 +287,13 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="Lamar Odom"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Lamar Odom was both the highest-trending search term and the most-searched person in 2015. Caitlyn Jenner was the second-most searched person.
                                 (GETTY/VANITY FAIR)
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                                 <p>In 2015, <a href="https://trends.google.com/trends/yis/2015/US/" style={{color:"black"}} target="_blank" rel="nofollow noopener">the fastest-rising search term</a> was a person,&nbsp;<span class="link"><a href="https://www.cbsnews.com/news/lamar-odom-overdosed-on-cocaine-and-other-drugs-authorities-suspect/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Lamar Odom</a></span>. The NBA player joined a reality TV dynasty when he married Khloe Kardashian in 2009. By 2015, Odom and Kardashian were going through a divorce. That year, he was found unconscious&nbsp;<span class="link"><a href="https://www.cbsnews.com/news/brothel-owner-lamar-odom-wanted-confidentiality-policy/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">in a Nevada brothel</a></span>, suffering an apparent drug overdose. Kardashian and her family were by Odom's side during his recovery and she dismissed the divorce filing until he recovered.</p>
                             </Typography>
@@ -310,13 +319,13 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="Powerball"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 The more than $1 billion Powerball, Prince's death and the Summer Olympics in Rio were some of the stories that rocked the U.S. in 2016.
                                 (GETTY)
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                                 <p>The year in search got a bit of a curveball in 2016 — actually, it was a <em>Powerball</em>. The term skyrocketed in U.S. Google searches that year after <span class="link"><a href="https://www.cbsnews.com/news/powerball-winning-numbers-drawing-jackpot-over-one-billion-dollars/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">the jackpot topped $1 billion</a></span>.</p>
                             </Typography>
@@ -346,13 +355,13 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="Hurricane Irma"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 GOES weather satellites provide the hemispheric views familiar from nightly newscasts and also dramatic close-up looks at storms like Hurricane Irma, seen here, as it approached Puerto Rico in 2017.
                                 (NOAA)
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                                 <p>Several islands in the Caribbean were reduced to rubble when&nbsp;<a href="https://trends.google.com/trends/yis/2017/US/" style={{color:"black"}} target="_blank" rel="nofollow noopener">Hurricane Irma</a>&nbsp;tore through the region in September 2017. <span class="link"><a href="https://www.cbsnews.com/news/huricane-irma-death-toll-florida-power-outage/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">The powerful storm</a></span> also caused widespread damage across Florida.</p>
                             </Typography>
@@ -379,13 +388,13 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="World Cup"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Kylian Mbappe of France celebrates with teammates after scoring his team's fourth goal during the 2018 FIFA World Cup Final between France and Croatia at Luzhniki Stadium on July 15, 2018, in Moscow, Russia.
                                 (CATHERINE IVILL / GETTY)
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                                 <p>With soccer being one of the most popular sports in the world, it's no wonder "World Cup" is often on Google's most-searched list during tournament years. Last year, <span class="link"><a href="https://www.cbsnews.com/news/2018-world-cup-final-france-defeats-croatia-4-2-to-capture-title-today-2018-07-15/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">France defeated Croatia 4-2</a></span> in the World Cup final.</p>
                             </Typography>
@@ -411,13 +420,13 @@ export default function DecadeTop() {
                             // image={require("../images/disney.jpg")}
                             title="Disney+"
                         />
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Disney+ was the fastest rising search term in the U.S. this year, according to Google. "Baby Yoda," who took the world by storm after appearing in the original Disney+ series "The Mandalorian," was the most-searched baby.
                                 (DISNEY/GETTY)
                             </Typography>
                         </CardContent>
-                        <CardContent>
+                        <CardContent className={classes.content}>
                             <Typography paragraph>
                                 As the streaming wars raged on this year, <a href="https://trends.google.com/trends/yis/2019/US/" style={{color:"black"}} target="_blank" rel="nofollow noopener">Google users</a> were most curious about <span class="link"><a href="https://www.cbsnews.com/news/disney-streaming-service-cost-disney-plus-service-start-date-of-november-12-2019/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">newcomer Disney+</a></span>. After months of speculation, <span class="link"><a href="https://www.cbsnews.com/news/disney-plus-app-heres-what-you-need-to-know-about-the-disney-launch-today-shows-movies-marvel-verizon-deal/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Disney+ finally launched</a></span>&nbsp;in November, giving subscribers access to old Disney Channel shows, classic animated movies, newly-acquired properties like Marvel and Star Wars, original content and more.
                             </Typography>
