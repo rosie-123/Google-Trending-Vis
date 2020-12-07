@@ -76,14 +76,19 @@ const useStyles = makeStyles((theme) => ({
         // overflow: "auto",
     },
 }));
-
-export default function DecadeTop() {
+const DecadeTop = ({ getDecadeTerm }) => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    // const handleClick = (value) => {
+    //     () => getDecadeTerm(value);
+    // };
+
+    
 
     return (
         <div className={classes.root} >
@@ -113,7 +118,7 @@ export default function DecadeTop() {
             <Divider />
             <TabPanel value={value} index={0}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="iPad" onClick={() => getDecadeTerm("iPad")}>
                     <CardHeader
                         title="iPad"
                         subheader="Click to view the trending for this term in 2020"
@@ -144,9 +149,9 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="Rebecca Black" onClick={() => getDecadeTerm("Rebecca Black")}>
                     <CardHeader
-                        title="Rebecca Black "
+                        title="Rebecca Black"
                         subheader="Click to view the trending for this term in 2020"
                     />
                 </CardActionArea>    
@@ -182,7 +187,7 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="Whitney Houston" onClick={() => getDecadeTerm("Whitney Houston")}>
                     <CardHeader
                         title="Whitney Houston"
                         subheader="Click to view the trending for this term in 2020"/>
@@ -214,7 +219,7 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={3}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="Paul Walker" onClick={() => getDecadeTerm("Paul Walker")}>
                     <CardHeader
                         title="Paul Walker"
                         subheader="Click to view the trending for this term in 2020"/>
@@ -246,7 +251,7 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={4}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="Robin Williams" onClick={() => getDecadeTerm("Robin Williams")}>
                     <CardHeader
                         title="Robin Williams"
                         subheader="Click to view the trending for this term in 2020"
@@ -283,7 +288,7 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={5}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="Lamar Odom" onClick={() => getDecadeTerm("Lamar Odom")}>
                     <CardHeader
                         title="Lamar Odom"
                         subheader="Click to view the trending for this term in 2020"
@@ -317,7 +322,7 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={6}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="Powerball" onClick={() => getDecadeTerm("Powerball")}>
                     <CardHeader
                         title="Powerball"
                         subheader="Click to view the trending for this term in 2020"
@@ -354,7 +359,7 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={7}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="Hurricane Irma" onClick={() => getDecadeTerm("Hurricane Irma")}>
                     <CardHeader
                         title="Hurricane Irma"
                         subheader="Click to view the trending for this term in 2020"
@@ -389,7 +394,7 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={8}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="World Cup" onClick={() => getDecadeTerm("World Cup")}>
                     <CardHeader
                         title="World Cup"
                         subheader="Click to view the trending for this term in 2020"
@@ -423,7 +428,7 @@ export default function DecadeTop() {
             </TabPanel>
             <TabPanel value={value} index={9}>
                 <Card className={classes.card}>
-                <CardActionArea>
+                <CardActionArea value="Disney+" onClick={() => getDecadeTerm("Disney+")}>
                     <CardHeader
                         title="Disney+"
                         subheader="Click to view the trending for this term in 2020"
@@ -460,3 +465,4 @@ export default function DecadeTop() {
     );
 }
 
+export default DecadeTop;
