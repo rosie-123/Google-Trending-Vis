@@ -41,7 +41,7 @@ function App() {
         </div>
         <div className={classes.mainPanel}>
           <DecadeTop getDecadeTerm={getDecadeTerm}/>
-          <DecadeOneTrend term={decadeTerm} />
+          {/* <DecadeOneTrend term={decadeTerm} /> */}
         </div>
       </div>
     </ThemeProvider>

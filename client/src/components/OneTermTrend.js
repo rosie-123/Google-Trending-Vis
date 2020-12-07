@@ -19,9 +19,9 @@ const OneTermTrend = ({ term }) => {
   const [data, setData] = useState([]);
   const classes = useStyles();
   useEffect(() => {
-    if (term !== queryTerm) {
-      setQueryTerm(term);
-    }
+    // if (term !== queryTerm) {
+    //   setQueryTerm(term);
+    // }
     const aggregatedData = [];
     fetch(`http://localhost:9000/term/?term=${queryTerm}`)
       .then((res) => res.json())
@@ -40,9 +40,15 @@ const OneTermTrend = ({ term }) => {
         });
       })
       .then(() => setData(aggregatedData));
-  }, [queryTerm, term]);
+  }, [term, queryTerm]);
+  useEffect(() => {
+    if (term !== queryTerm) {
+      setQueryTerm(term);
+    }
+  }, [term])
   const keyPress = (e) => {
     if (e.key === "Enter") {
+      console.log(e.target.value)
       setQueryTerm(e.target.value);
     }
   };
@@ -70,6 +76,7 @@ const OneTermTrend = ({ term }) => {
             onKeyPress={keyPress}
           />
         </div>
+        {console.log("query", queryTerm)}
           <Typography variant="subtitle2" className={classes.subtitle}>Current Search Term <span className={classes.queryTerm}>{"[ "}{queryTerm}{" ]"}</span></Typography>
         <div className={classes.chartArea}>
           <ResponsiveContainer width="100%" height={325}>

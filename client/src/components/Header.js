@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Button, Toolbar, IconButton } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import DescriptionIcon from "@material-ui/icons/Description";
 
 const Header = () => {
   const classes = useStyles();
@@ -19,9 +20,14 @@ const Header = () => {
           TRENDING VIS
         </Typography>
         <a href="https://github.com/rosie-123/Trending-vis" target="_blank">
-        <IconButton>
-          <GitHubIcon />
-        </IconButton>
+          <IconButton>
+            <DescriptionIcon />
+          </IconButton>
+        </a>
+        <a href="https://github.com/rosie-123/Trending-vis" target="_blank">
+          <IconButton>
+            <GitHubIcon />
+          </IconButton>
         </a>
       </Toolbar>
     </React.Fragment>
