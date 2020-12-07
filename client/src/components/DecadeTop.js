@@ -113,10 +113,12 @@ export default function DecadeTop() {
             <Divider />
             <TabPanel value={value} index={0}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2010: iPad"
+                        title="iPad"
+                        subheader="Click to view the trending for this term in 2020"
                     />
-                    <CardActionArea>
+                </CardActionArea>
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -136,17 +138,18 @@ export default function DecadeTop() {
                             <p>The iPad, which was released by Apple in 2010, was <a href="https://archive.google.com/intl/en/press/zeitgeist2010/regions/us/" style={{color:"black"}} target="_blank" rel="nofollow noopener">Google's fasted rising search query</a>&nbsp;that year. Also new on the scene was Justin Bieber, who released his first studio album in 2010 and was the highest-trending person on Google's list.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
 
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2011: Rebecca Black "
-
+                        title="Rebecca Black "
+                        subheader="Click to view the trending for this term in 2020"
                     />
-                    <CardActionArea>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -174,14 +177,16 @@ export default function DecadeTop() {
                             <p>Also in 2011, Americans were engrossed in the trial of <span class="link"><a href="https://www.cbsnews.com/news/casey-anthony-trial-update-after-not-guilty-murder-verdict-sentencing-for-lesser-charges-thursday/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Casey Anthony</a></span>, a Florida mother charged in the 2008 death of her 2-year-old daughter, Caylee. After deliberating for more than 10 hours, a jury found Anthony not guilty of first-degree murder, a verdict that <span class="link"><a href="https://www.cbsnews.com/news/casey-anthony-judgment-day/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">shocked millions of people</a></span>. The whole drama made Anthony one of the most-searched people on Google that year.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2012: Whitney Houston"/>
-                    <CardActionArea>
+                        title="Whitney Houston"
+                        subheader="Click to view the trending for this term in 2020"/>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -204,14 +209,16 @@ export default function DecadeTop() {
                             <p>The singer's <span class="link"><a href="https://www.cbsnews.com/news/whitney-houstons-autopsy-how-can-drowning-cocaine-and-heart-disease-all-be-blamed/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">cause of death</a></span> was determined to be drowning along with "effects of atherosclerotic heart disease and cocaine use." She left behind one daughter,&nbsp;<span class="link"><a href="https://www.cbsnews.com/news/pat-houston-opens-up-for-first-time-about-bobbi-kristina-brown-s-death/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Bobbi Kristina Brown</a></span>, who died just a few years later in 2016.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             <TabPanel value={value} index={3}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2013: Paul Walker"/>
-                    <CardActionArea>
+                        title="Paul Walker"
+                        subheader="Click to view the trending for this term in 2020"/>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -234,15 +241,17 @@ export default function DecadeTop() {
                             <p>The former anti-Apartheid leader and president of South Africa, Nelson Mandela, who also died in 2013, <a href="https://www.businessinsider.com/google-zeitgeist-2013-2013-12" style={{color:"black"}} target="_blank" rel="nofollow noopener">topped Google's global list</a>.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             <TabPanel value={value} index={4}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2014: Robin Williams"
+                        title="Robin Williams"
+                        subheader="Click to view the trending for this term in 2020"
                     />
-                    <CardActionArea>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -269,15 +278,17 @@ export default function DecadeTop() {
                                 <p>This was also a World Cup year, and that term was second on Google's list, followed by <a href="https://cbsnews.com/ebola/" style={{color:"black"}} target="_blank" data-absolute="true" rel="nofollow noopener">Ebola</a>, as an outbreak of the deadly virus sickened thousands;&nbsp;<a href="http://cbsnews.com/malaysia-airlines-flight-370/" style={{color:"black"}} target="_blank" data-absolute="true" rel="nofollow noopener">Malaysia Airlines</a>, after Flight 370 mysteriously vanished somewhere over the Pacific; and the viral video game <span class="link"><a href="https://www.cbsnews.com/news/flappy-bird-creator-yanks-viral-mobile-game/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Flappy Bird</a></span>.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             <TabPanel value={value} index={5}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2015: Lamar Odom"
+                        title="Lamar Odom"
+                        subheader="Click to view the trending for this term in 2020"
                     />
-                    <CardActionArea>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -301,15 +312,17 @@ export default function DecadeTop() {
                                 <p>Another Kardashian-Jenner family member made headlines that year. Also on the list of top Google search terms was <span class="link"><a href="https://www.cbsnews.com/news/caitlyn-jenner-formerly-bruce-jenner-poses-for-cover-of-vanity-fair/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Caitlyn Jenner</a></span>, formerly Bruce Jenner, who introduced herself to the world as Caitlyn for the first time on the cover of&nbsp;<a href="http://www.vanityfair.com/hollywood/2015/06/caitlyn-jenner-bruce-cover-annie-leibovitz" style={{color:"black"}} target="_blank" rel="nofollow noopener">Vanity Fair</a>. Jenner had come out as transgender earlier that year and began to publicly transition from man to woman.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             <TabPanel value={value} index={6}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2016: Powerball"
+                        title="Powerball"
+                        subheader="Click to view the trending for this term in 2020"
                     />
-                    <CardActionArea>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -336,16 +349,18 @@ export default function DecadeTop() {
                                 <p>2016 was also an Olympic year, and the Summer Games in Rio were the top news event searched in the U.S.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             <TabPanel value={value} index={7}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2017: Hurricane Irma"
+                        title="Hurricane Irma"
+                        subheader="Click to view the trending for this term in 2020"
 
                     />
-                    <CardActionArea>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -369,16 +384,17 @@ export default function DecadeTop() {
                                 <p>That year saw several unusually destructive hurricanes, including <a href="http://cbsnews.com/harvey" style={{color:"black"}} target="_blank" rel="nofollow noopener">Hurricane Harvey</a>, which hit Houston, and <span class="link"><a href="https://www.cbsnews.com/news/hurricane-maria-death-toll-puerto-rico-2975-killed-by-storm-study-finds/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Hurricane Maria</a></span>, which devastated Puerto Rico.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             <TabPanel value={value} index={8}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2018: World Cup"
-
+                        title="World Cup"
+                        subheader="Click to view the trending for this term in 2020"
                     />
-                    <CardActionArea>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -402,15 +418,17 @@ export default function DecadeTop() {
                                 <p>The World Cup was also <a href="https://trends.google.com/trends/yis/2018/US/" style={{color:"black"}} target="_blank" rel="nofollow noopener">Google's top news event</a> in the U.S. last year, followed by Hurricane Florence.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             <TabPanel value={value} index={9}>
                 <Card className={classes.card}>
+                <CardActionArea>
                     <CardHeader
-                        title="2019: Disney+"
+                        title="Disney+"
+                        subheader="Click to view the trending for this term in 2020"
                     />
-                    <CardActionArea>
+                </CardActionArea>    
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -434,7 +452,7 @@ export default function DecadeTop() {
                                 <p>The highest-rising news event search in the U.S. in 2019 was <span class="link"><a href="https://www.cbsnews.com/live-news/hurricane-dorian-update-category-4-storm-landfall-latest-track-path-models-forecast-2019-09-01/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Hurricane Dorian</a></span>, which battered the Bahamas as a Category 5 in September. The most-searched person was <span class="link"><a href="https://www.cbsnews.com/news/antonio-brown-released-by-new-england-patriots-following-rape-allegation-2019-09-20/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Antonio Brown</a></span>, the most-searched actor was <span class="link"><a href="https://www.cbsnews.com/live-news/jussie-smollett-charges-dropped-empire-actor-emergency-chicago-court-appearance-today-2019-03-26/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Jussie Smollett</a></span> and the most-searched baby was, of course, <span class="link"><a href="https://www.cbsnews.com/news/baby-yoda-mandalorian-official-toys-from-hasbro-now-available-but-wont-ship-until-may-2019-12-13/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Baby Yoda</a></span>.</p>
                             </Typography>
                         </CardContent>
-                    </CardActionArea>
+                    
                 </Card>
             </TabPanel>
             </Card>
