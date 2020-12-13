@@ -50,10 +50,8 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 2,
         backgroundColor: theme.palette.background.paper,
         display: 'flex',
-        // height: 400
     },
     tabs: {
         borderRight: `1px solid ${theme.palette.divider}`,
@@ -63,15 +61,12 @@ const useStyles = makeStyles((theme) => ({
         height: 360,
         width: 540,
     },
-
     card: {
         width: 950,
         overflow:'auto',
         border: "none",
         boxShadow: "none",
-
     },
-
     content:{
         // overflow: "auto",
     },
@@ -115,7 +110,6 @@ const DecadeTop = ({}) => {
 
     return (
         <div className={classes.root} >
-            
             <Tabs
                 orientation="vertical"
                 variant="scrollable"

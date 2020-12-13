@@ -60,21 +60,6 @@ const DecadeOneTrend = ({ term, date}) => {
           // subheader="Given a single term, what is the interest of the term over 2020?"
         />
         <CardContent>
-        {/* <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            type="text"
-            placeholder="Example: Black Friday"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ "aria-label": "search" }}
-            onKeyPress={keyPress}
-          />
-        </div> */}
           <Typography variant="subtitle2" className={classes.subtitle}>Current Searched Term <span className={classes.queryTerm}>{"[ "}{queryTerm}{" ]"}</span></Typography>
         <div className={classes.chartArea}>
           <ResponsiveContainer width="100%" height={325}>
@@ -96,15 +81,13 @@ const DecadeOneTrend = ({ term, date}) => {
                 stroke="#cb2a83"
                 activeDot={{ r: 8 }}
               />
-              {/* <Line
-                connectNulls={true}
-                type="monotone"
-                dataKey={year}
-                stroke="#82ca9d"
-                activeDot={{ r: 8 }}
-              /> */}
             </LineChart>
           </ResponsiveContainer>
+          <Typography variant="subtitle2" className={classes.subtitle}>
+                * Note that the y-axis indicates the relative search volumn
+                which has normalized into the interval [1, 100] other than its real-world search
+                volumn
+              </Typography>
         </div>
         </CardContent>
       </Card>

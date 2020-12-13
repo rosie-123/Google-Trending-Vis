@@ -204,6 +204,12 @@ const OneTermTrend = ({ term }) => {
                   />
                 </LineChart>
               </ResponsiveContainer>
+              <Typography variant="subtitle2" className={classes.subtitle}>
+                * Note that the y-axis indicates the relative search volumn
+                which has normalized into the interval [1, 100] based on the
+                searching peak of the two terms other than its real-world search
+                volumn
+              </Typography>
             </div>
           )}
         </CardContent>

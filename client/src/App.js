@@ -8,6 +8,7 @@ import DecadeTop from "./components/DecadeTop";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
 
 const theme = createMuiTheme({
   typography: {
@@ -34,19 +35,25 @@ function App() {
   // const getYear = (year) => {
   //   setYear(year);
   // };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <Header />
+        <Typography variant="subtitle2" className={classes.introText}>
+          TRENDING VIS aims to visualize the data from Google Trends. By
+          browsing the interface, users are able to see the recent trendings
+          terms hat people are searching in US, select one term to see its trending
+          line chart and even compare a pair of terms to gain an insight about
+          them. We also provides the yearly top searching term over the past
+          decade. We are a group of 2 named SSR.
+        </Typography>
         <div className={classes.mainPanel}>
           <RecentTrends getSingleQuery={getSingleQuery} />
           <OneTermTrend term={singleQuery} />
         </div>
         <div className={classes.mainPanel}>
-        <DecadeTop/>
-          {/* <DecadeTop getDecadeTerm={getDecadeTerm} getYear={getYear}/> */}
-          {/* <DecadeOneTrend term={decadeTerm} year={year} /> */}
+          <DecadeTop />
         </div>
       </div>
     </ThemeProvider>
@@ -54,12 +61,22 @@ function App() {
 }
 
 const useStyles = makeStyles({
+  App: {
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+  },
+  introText: {
+    textAlign: "left",
+    margin: '2em',
+    fontWeight: 800,
+  },
   mainPanel: {
-    display: 'flex',
-    justifyContent: 'center',
+    display: "flex",
+    justifyContent: "center",
     // alignItems: 'center',
-    textAlign: 'left',
-  }
+    textAlign: "left",
+  },
 });
 
 export default App;

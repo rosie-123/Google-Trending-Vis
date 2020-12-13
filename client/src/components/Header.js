@@ -19,7 +19,10 @@ const Header = () => {
         >
           TRENDING VIS
         </Typography>
-        <a href="https://github.com/rosie-123/Trending-vis" target="_blank">
+        <a
+          href="https://docs.google.com/document/d/1lkmQSMxPL7L1RwmOrv8Uml4OPq04uE3pju2zOjAbkc4/edit?usp=sharing"
+          target="_blank"
+        >
           <IconButton>
             <DescriptionIcon />
           </IconButton>
