@@ -33,7 +33,7 @@ const OneTermTrend = ({ term }) => {
     //   setQueryTerm(term);
     // }
     const aggregatedData = [];
-    fetch(`http://localhost:9000/term/?term=${queryTerm}`)
+    fetch(`/term/?term=${queryTerm}`)
       .then((res) => res.json())
       .then((res) => {
         res.map((entry) => {
@@ -64,7 +64,7 @@ const OneTermTrend = ({ term }) => {
   };
   const fetchComparison = () => {
     const comparison = [];
-    fetch(`http://localhost:9000/compare/?termA=${termA}&termB=${termB}`)
+    fetch(`/compare/?termA=${termA}&termB=${termB}`)
       .then((res) => res.json())
       .then((res) =>
         res.map((entry) => {
@@ -87,7 +87,6 @@ const OneTermTrend = ({ term }) => {
   return (
     <div className={classes.root}>
       <Card>
-        {console.log("data", data)}
         <CardHeader
           title="Interest Over Time"
           titleTypographyProps={{ variant: "h6" }}

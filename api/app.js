@@ -18,10 +18,7 @@ app.set("view engine", "jade");
 
 const CLIENT_BUILD_PATH = path.join(__dirname, "./build");
 app.use(express.static(path.join(CLIENT_BUILD_PATH)));
-app.get("*", (req, res) => {
-  const index = path.join(CLIENT_BUILD_PATH, "index.html");
-  res.sendFile(index);
-});
+
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -34,6 +31,10 @@ app.use("/trends", trendsRouter);
 app.use("/term", termRouter);
 app.use("/decade", decadeRouter);
 app.use("/compare", compareRouter);
+app.get("*", (req, res) => {
+  const index = path.join(CLIENT_BUILD_PATH, "index.html");
+  res.sendFile(index);
+});
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

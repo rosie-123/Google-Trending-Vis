@@ -28,7 +28,7 @@ const DecadeOneTrend = ({ term, date}) => {
     }
 
     const aggregatedData = [];
-    fetch(`http://localhost:9000/decade/?term=${queryTerm}&date=${queryDate}`)
+    fetch(`/decade/?term=${queryTerm}&date=${queryDate}`)
       .then((res) => res.json())
       .then((res) => {
         res.map((entry) => {

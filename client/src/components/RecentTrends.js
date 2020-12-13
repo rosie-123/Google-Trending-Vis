@@ -24,7 +24,7 @@ const RecentTrends = ({ getSingleQuery }) => {
   const [dateDict, setDateDict] = useState(undefined);
 
   useEffect(() => {
-    fetch("http://localhost:9000/trends")
+    fetch("/trends")
       .then((res) => res.json())
       .then((res) => {
         setTermsDict(res);
