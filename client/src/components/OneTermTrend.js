@@ -148,7 +148,7 @@ const OneTermTrend = ({ term }) => {
         <CardHeader
           title="Compare a pair of terms"
           titleTypographyProps={{ variant: "h6" }}
-          subheader="Looking for something to compare? Specify two terms and compare their trending over the year"
+          subheader="Looking for something to compare? Specify two terms that you are interested in and compare their trending over the year."
         />
         <CardContent>
           <form className={classes.formRoot} noValidate autoComplete="off">

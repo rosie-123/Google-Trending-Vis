@@ -42,11 +42,11 @@ function App() {
         <Header />
         <Typography variant="subtitle2" className={classes.introText}>
           TRENDING VIS aims to visualize the data from Google Trends. By
-          browsing the interface, users are able to see the recent trendings
-          terms hat people are searching in US, select one term to see its trending
-          line chart and even compare a pair of terms to gain an insight about
-          them. We also provides the yearly top searching term over the past
-          decade. We are a group of 2 named SSR.
+          browsing the interface, users are able to see the recent trending
+          terms that people are searching in the US, select one term to see its
+          trending line chart, or two terms to compare their searching trends. We
+          also provide the yearly top searching term over the past decade. We
+          are a group of 2 named SSR.
         </Typography>
         <div className={classes.mainPanel}>
           <RecentTrends getSingleQuery={getSingleQuery} />
@@ -68,7 +68,7 @@ const useStyles = makeStyles({
   },
   introText: {
     textAlign: "left",
-    margin: '2em',
+    margin: "2em",
     fontWeight: 800,
   },
   mainPanel: {
