@@ -16,11 +16,17 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
+const CLIENT_BUILD_PATH = path.join(__dirname, "./build");
+app.use(express.static(path.join(CLIENT_BUILD_PATH)));
+app.get("*", (req, res) => {
+  const index = path.join(CLIENT_BUILD_PATH, "index.html");
+  res.sendFile(index);
+});
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
@@ -43,5 +49,8 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-
+const port = process.env.PORT || 9000
+app.listen(port, () => {
+  console.log(`Server set up!`)
+})
 module.exports = app;

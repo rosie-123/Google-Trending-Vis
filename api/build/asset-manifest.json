@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.35002502.chunk.css",
+    "main.js": "/static/js/main.962d88be.chunk.js",
+    "main.js.map": "/static/js/main.962d88be.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.120840cb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.120840cb.js.map",
+    "static/css/2.3cd4cbfd.chunk.css": "/static/css/2.3cd4cbfd.chunk.css",
+    "static/js/2.4c704298.chunk.js": "/static/js/2.4c704298.chunk.js",
+    "static/js/2.4c704298.chunk.js.map": "/static/js/2.4c704298.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.3cd4cbfd.chunk.css.map": "/static/css/2.3cd4cbfd.chunk.css.map",
+    "static/css/main.35002502.chunk.css.map": "/static/css/main.35002502.chunk.css.map",
+    "static/js/2.4c704298.chunk.js.LICENSE.txt": "/static/js/2.4c704298.chunk.js.LICENSE.txt",
+    "static/media/disney.0d14680b.jpg": "/static/media/disney.0d14680b.jpg",
+    "static/media/ipad.8b5b4112.jpg": "/static/media/ipad.8b5b4112.jpg",
+    "static/media/irma.37365307.jpg": "/static/media/irma.37365307.jpg",
+    "static/media/lamar.1413b1da.jpg": "/static/media/lamar.1413b1da.jpg",
+    "static/media/paul.dc5cb250.jpg": "/static/media/paul.dc5cb250.jpg",
+    "static/media/powerBall.bc801aad.jpg": "/static/media/powerBall.bc801aad.jpg",
+    "static/media/rebecca.b24af6b0.jpg": "/static/media/rebecca.b24af6b0.jpg",
+    "static/media/robin.c747f2aa.jpg": "/static/media/robin.c747f2aa.jpg",
+    "static/media/whitney.ed85edce.jpg": "/static/media/whitney.ed85edce.jpg",
+    "static/media/worldCup.1a9c4fe4.jpg": "/static/media/worldCup.1a9c4fe4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.120840cb.js",
+    "static/css/2.3cd4cbfd.chunk.css",
+    "static/js/2.4c704298.chunk.js",
+    "static/css/main.35002502.chunk.css",
+    "static/js/main.962d88be.chunk.js"
+  ]
+}
