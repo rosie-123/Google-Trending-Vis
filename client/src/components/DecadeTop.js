@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Tabs, Tab, Box, Card, CardContent, CardHeader, CardActionArea, CardMedia,Divider } from "@material-ui/core";
+import { Typography, Tabs, Tab, Box, Card, CardContent, CardHeader, CardMedia,Divider } from "@material-ui/core";
 import { TabContext } from '@material-ui/lab';
 import disney from '../images/disney.jpg';
 import ipad from '../images/ipad.jpg';
@@ -13,6 +13,7 @@ import rebecca from '../images/rebecca.jpg';
 import robin from '../images/robin.jpg';
 import whitney from '../images/whitney.jpg';
 import worldCup from '../images/worldCup.jpg';
+import DecadeOneTrend from "./DecadeOneTrend";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -61,11 +62,10 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 360,
         width: 540,
-        align: "center",
     },
 
     card: {
-        width: 540,
+        width: 950,
         overflow:'auto',
         border: "none",
         boxShadow: "none",
@@ -76,17 +76,40 @@ const useStyles = makeStyles((theme) => ({
         // overflow: "auto",
     },
 }));
-const DecadeTop = ({ getDecadeTerm }) => {
+const DecadeTop = ({}) => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+    const [decadeTerm, setDecadeTerm] = useState("ipad");
+    const [date, setDate] = useState("2010-01-01");
+    const getDecadeTerm = (term) => {
+        setDecadeTerm(term);
+    };
+    const getDate = (date) => {
+        setDate(date);
     };
 
-    // const handleClick = (value) => {
-    //     () => getDecadeTerm(value);
-    // };
+    const keywords = [
+        {date: "2010-01-01", term: 'iPad'},
+        {date: "2011-01-01", term: 'Rebecca Black'},
+        {date: "2012-01-01", term: 'Whitney Houston'},
+        {date: "2013-01-01", term: 'Paul Walker'},
+        {date: "2014-01-01", term: 'Robin Williams'},
+        {date: "2015-01-01", term: 'Lamar Odom'},
+        {date: "2016-01-01", term: 'Powerball'},
+        {date: "2017-01-01", term: 'Hurricane Irma'},
+        {date: "2018-01-01", term: 'World Cup'},
+        {date: "2019-01-01", term: 'Disney+'},
+      ];
+
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+        getDate(keywords[newValue].date);
+        getDecadeTerm(keywords[newValue].term);
+
+    };
+
 
     
 
@@ -118,12 +141,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             <Divider />
             <TabPanel value={value} index={0}>
                 <Card className={classes.card}>
-                <CardActionArea value="iPad" onClick={() => getDecadeTerm("iPad")}>
+
                     <CardHeader
                         title="iPad"
-                        subheader="Click to view the trending for this term in 2020"
+                        //subheader="Click to view the trending for this term in 2020"
                     />
-                </CardActionArea>
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -149,12 +172,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Card className={classes.card}>
-                <CardActionArea value="Rebecca Black" onClick={() => getDecadeTerm("Rebecca Black")}>
+
                     <CardHeader
                         title="Rebecca Black"
-                        subheader="Click to view the trending for this term in 2020"
+                        //subheader="Click to view the trending for this term in 2020"
                     />
-                </CardActionArea>    
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -187,11 +210,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <Card className={classes.card}>
-                <CardActionArea value="Whitney Houston" onClick={() => getDecadeTerm("Whitney Houston")}>
+
                     <CardHeader
                         title="Whitney Houston"
-                        subheader="Click to view the trending for this term in 2020"/>
-                </CardActionArea>    
+                        //subheader="Click to view the trending for this term in 2020"
+                    />
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -219,11 +243,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={3}>
                 <Card className={classes.card}>
-                <CardActionArea value="Paul Walker" onClick={() => getDecadeTerm("Paul Walker")}>
+
                     <CardHeader
                         title="Paul Walker"
-                        subheader="Click to view the trending for this term in 2020"/>
-                </CardActionArea>    
+                        //subheader="Click to view the trending for this term in 2020"
+                    />
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -233,6 +258,7 @@ const DecadeTop = ({ getDecadeTerm }) => {
                             // image={require("../images/disney.jpg")}
                             title="Paul Walker"
                         />
+
                         <CardContent className={classes.content}>
                             <Typography variant="body2" color="textSecondary" component="p">
                             Paul Walker, who is known for his role in the "Fast and the Furious" film series, died in a car crash in 2013.
@@ -251,12 +277,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={4}>
                 <Card className={classes.card}>
-                <CardActionArea value="Robin Williams" onClick={() => getDecadeTerm("Robin Williams")}>
+
                     <CardHeader
                         title="Robin Williams"
-                        subheader="Click to view the trending for this term in 2020"
+                        //subheader="Click to view the trending for this term in 2020"
                     />
-                </CardActionArea>    
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -288,12 +314,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={5}>
                 <Card className={classes.card}>
-                <CardActionArea value="Lamar Odom" onClick={() => getDecadeTerm("Lamar Odom")}>
+
                     <CardHeader
                         title="Lamar Odom"
-                        subheader="Click to view the trending for this term in 2020"
+                        //subheader="Click to view the trending for this term in 2020"
                     />
-                </CardActionArea>    
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -322,12 +348,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={6}>
                 <Card className={classes.card}>
-                <CardActionArea value="Powerball" onClick={() => getDecadeTerm("Powerball")}>
+
                     <CardHeader
                         title="Powerball"
-                        subheader="Click to view the trending for this term in 2020"
+                        //subheader="Click to view the trending for this term in 2020"
                     />
-                </CardActionArea>    
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -359,13 +385,13 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={7}>
                 <Card className={classes.card}>
-                <CardActionArea value="Hurricane Irma" onClick={() => getDecadeTerm("Hurricane Irma")}>
+
                     <CardHeader
                         title="Hurricane Irma"
-                        subheader="Click to view the trending for this term in 2020"
+                        //subheader="Click to view the trending for this term in 2020"
 
                     />
-                </CardActionArea>    
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -394,12 +420,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={8}>
                 <Card className={classes.card}>
-                <CardActionArea value="World Cup" onClick={() => getDecadeTerm("World Cup")}>
+
                     <CardHeader
                         title="World Cup"
-                        subheader="Click to view the trending for this term in 2020"
+                        //subheader="Click to view the trending for this term in 2020"
                     />
-                </CardActionArea>    
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -428,12 +454,12 @@ const DecadeTop = ({ getDecadeTerm }) => {
             </TabPanel>
             <TabPanel value={value} index={9}>
                 <Card className={classes.card}>
-                <CardActionArea value="Disney+" onClick={() => getDecadeTerm("Disney+")}>
+
                     <CardHeader
                         title="Disney+"
-                        subheader="Click to view the trending for this term in 2020"
+                        //subheader="Click to view the trending for this term in 2020"
                     />
-                </CardActionArea>    
+
                         <CardMedia
                             className={classes.media}
                             component="img"
@@ -457,9 +483,9 @@ const DecadeTop = ({ getDecadeTerm }) => {
                                 <p>The highest-rising news event search in the U.S. in 2019 was <span class="link"><a href="https://www.cbsnews.com/live-news/hurricane-dorian-update-category-4-storm-landfall-latest-track-path-models-forecast-2019-09-01/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Hurricane Dorian</a></span>, which battered the Bahamas as a Category 5 in September. The most-searched person was <span class="link"><a href="https://www.cbsnews.com/news/antonio-brown-released-by-new-england-patriots-following-rape-allegation-2019-09-20/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Antonio Brown</a></span>, the most-searched actor was <span class="link"><a href="https://www.cbsnews.com/live-news/jussie-smollett-charges-dropped-empire-actor-emergency-chicago-court-appearance-today-2019-03-26/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Jussie Smollett</a></span> and the most-searched baby was, of course, <span class="link"><a href="https://www.cbsnews.com/news/baby-yoda-mandalorian-official-toys-from-hasbro-now-available-but-wont-ship-until-may-2019-12-13/" style={{color:"black"}} target="_blank" data-invalid-url-rewritten-http="">Baby Yoda</a></span>.</p>
                             </Typography>
                         </CardContent>
-                    
                 </Card>
             </TabPanel>
+            <DecadeOneTrend term={decadeTerm} date={date} />
             </Card>
         </div>
     );

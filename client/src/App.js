@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import RecentTrends from "./components/RecentTrends";
 import OneTermTrend from "./components/OneTermTrend";
 import DecadeTop from "./components/DecadeTop";
-import DecadeOneTrend from "./components/DecadeOneTrend";
+// import DecadeOneTrend from "./components/DecadeOneTrend";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { makeStyles } from "@material-ui/core/styles";
@@ -26,10 +26,14 @@ function App() {
   const getSingleQuery = (term) => {
     setSingleQuery(term);
   };
-  const [decadeTerm, setDecadeTerm] = useState("ipad");
-  const getDecadeTerm = (term) => {
-    setDecadeTerm(term);
-  };
+  // const [decadeTerm, setDecadeTerm] = useState("ipad");
+  // const [year, setYear] = useState("2010");
+  // const getDecadeTerm = (term) => {
+  //   setDecadeTerm(term);
+  // };
+  // const getYear = (year) => {
+  //   setYear(year);
+  // };
   
   return (
     <ThemeProvider theme={theme}>
@@ -40,8 +44,9 @@ function App() {
           <OneTermTrend term={singleQuery} />
         </div>
         <div className={classes.mainPanel}>
-          <DecadeTop getDecadeTerm={getDecadeTerm}/>
-          {/* <DecadeOneTrend term={decadeTerm} /> */}
+        <DecadeTop/>
+          {/* <DecadeTop getDecadeTerm={getDecadeTerm} getYear={getYear}/> */}
+          {/* <DecadeOneTrend term={decadeTerm} year={year} /> */}
         </div>
       </div>
     </ThemeProvider>
@@ -52,7 +57,7 @@ const useStyles = makeStyles({
   mainPanel: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     textAlign: 'left',
   }
 });

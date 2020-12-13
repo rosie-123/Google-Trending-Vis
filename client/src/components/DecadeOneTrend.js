@@ -14,23 +14,28 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const DecadeOneTrend = ({ term }) => {
+const DecadeOneTrend = ({ term, date}) => {
   const [queryTerm, setQueryTerm] = useState(term);
+  const [queryDate, setQueryDate] = useState(date);
   const [data, setData] = useState([]);
   const classes = useStyles();
   useEffect(() => {
     if (term !== queryTerm) {
       setQueryTerm(term);
     }
+    if (date !== queryDate) {
+      setQueryDate(date);
+    }
+
     const aggregatedData = [];
-    fetch(`http://localhost:9000/term/?term=${queryTerm}`)
+    fetch(`http://localhost:9000/decade/?term=${queryTerm}&date=${queryDate}`)
       .then((res) => res.json())
       .then((res) => {
         res.map((entry) => {
           if (entry["hasData"][0]) {
             const singleEntry = {
               time: entry["formattedAxisTime"],
-              "search volume":
+              "searched volume":
                 entry["formattedValue"][0] === NaN
                   ? "NaN"
                   : Number(entry["formattedValue"][0]),
@@ -40,19 +45,19 @@ const DecadeOneTrend = ({ term }) => {
         });
       })
       .then(() => setData(aggregatedData));
-  }, [queryTerm, term]);
-  const keyPress = (e) => {
-    if (e.key === "Enter") {
-      setQueryTerm(e.target.value);
-    }
-  };
+  }, [queryTerm, term], [queryDate, date]);
+  // const keyPress = (e) => {
+  //   if (e.key === "Enter") {
+  //     setQueryTerm(e.target.value);
+  //   }
+  // };
   return (
     <div className={classes.root}>
       <Card>
         <CardHeader
-          title="Interest Over Time (decade term version)"
+          title="Interest from Top Searched Year till 2020"
           titleTypographyProps={{ variant: "h6" }}
-          subheader="Given a single term, what is the interest of the term over 2020?"
+          // subheader="Given a single term, what is the interest of the term over 2020?"
         />
         <CardContent>
         {/* <div className={classes.search}>
@@ -70,7 +75,7 @@ const DecadeOneTrend = ({ term }) => {
             onKeyPress={keyPress}
           />
         </div> */}
-          <Typography variant="subtitle2" className={classes.subtitle}>Current Search Term <span className={classes.queryTerm}>{"[ "}{queryTerm}{" ]"}</span></Typography>
+          <Typography variant="subtitle2" className={classes.subtitle}>Current Searched Term <span className={classes.queryTerm}>{"[ "}{queryTerm}{" ]"}</span></Typography>
         <div className={classes.chartArea}>
           <ResponsiveContainer width="100%" height={325}>
             <LineChart
@@ -87,10 +92,17 @@ const DecadeOneTrend = ({ term }) => {
               <Line
                 connectNulls={true}
                 type="monotone"
-                dataKey="search volume"
-                stroke="#8884d8"
+                dataKey="searched volume"
+                stroke="#cb2a83"
                 activeDot={{ r: 8 }}
               />
+              {/* <Line
+                connectNulls={true}
+                type="monotone"
+                dataKey={year}
+                stroke="#82ca9d"
+                activeDot={{ r: 8 }}
+              /> */}
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -102,12 +114,12 @@ const DecadeOneTrend = ({ term }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: "2.5em",
-    maxHeight: "55%",
-    minHeight: "55%",
-    maxWidth: "40%",
-    display: "flex",
-    flexDirection: "column",
+    // margin: "2.5em",
+    // maxHeight: "55%",
+    // minHeight: "55%",
+    // maxWidth: "40%",
+    // display: "flex",
+    // flexDirection: "column",
   },
   search: {
     display: "flex",
