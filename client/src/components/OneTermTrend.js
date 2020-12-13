@@ -109,7 +109,6 @@ const OneTermTrend = ({ term }) => {
               onKeyPress={keyPress}
             />
           </div>
-          {console.log("query", queryTerm)}
           <Typography variant="subtitle2" className={classes.subtitle}>
             Current Search Term{" "}
             <span className={classes.queryTerm}>
@@ -140,6 +139,11 @@ const OneTermTrend = ({ term }) => {
                 />
               </LineChart>
             </ResponsiveContainer>
+            <Typography variant="subtitle2" className={classes.subtitle}>
+              * Note that the y-axis indicates the relative search volumn which
+              has normalized into the interval [1, 100] other than its
+              real-world search volumn
+            </Typography>
           </div>
         </CardContent>
         <CardHeader
@@ -148,7 +152,6 @@ const OneTermTrend = ({ term }) => {
           subheader="Looking for something to compare? Specify two terms and compare their trending over the year"
         />
         <CardContent>
-          {console.log(comparisonData)}
           <form className={classes.formRoot} noValidate autoComplete="off">
             <TextField
               id="standard-basic"
@@ -237,7 +240,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 800,
   },
   subtitle: {
-    marginBottom: "1rem",
+    marginTop: "0.5rem",
+    marginBottom: "0.5rem",
   },
   formRoot: {
     "& > *": {

@@ -52,7 +52,7 @@ const useStyles = makeStyles({
   mainPanel: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     textAlign: 'left',
   }
 });
