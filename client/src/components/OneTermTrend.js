@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardContent, CardHeader, Typography } from "@material-ui/core";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Typography,
+} from "@material-ui/core";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
+import TextField from "@material-ui/core/TextField";
 import {
   LineChart,
   Line,
@@ -17,6 +24,9 @@ import {
 const OneTermTrend = ({ term }) => {
   const [queryTerm, setQueryTerm] = useState(term);
   const [data, setData] = useState([]);
+  const [termA, setTermA] = useState("");
+  const [termB, setTermB] = useState("");
+  const [comparisonData, setComparisonData] = useState([]);
   const classes = useStyles();
   useEffect(() => {
     // if (term !== queryTerm) {
@@ -45,62 +55,154 @@ const OneTermTrend = ({ term }) => {
     if (term !== queryTerm) {
       setQueryTerm(term);
     }
-  }, [term])
+  }, [term]);
   const keyPress = (e) => {
     if (e.key === "Enter") {
-      console.log(e.target.value)
+      console.log(e.target.value);
       setQueryTerm(e.target.value);
     }
+  };
+  const fetchComparison = () => {
+    const comparison = [];
+    fetch(`http://localhost:9000/compare/?termA=${termA}&termB=${termB}`)
+      .then((res) => res.json())
+      .then((res) =>
+        res.map((entry) => {
+          if (entry["hasData"][0] && entry["hasData"][1]) {
+            const singleEntry = {
+              time: entry["formattedAxisTime"],
+            };
+            singleEntry[termA] = entry["value"][0];
+            singleEntry[termB] = entry["value"][1];
+            comparison.push(singleEntry);
+          }
+        })
+      )
+      .then(() => setComparisonData(comparison));
+  };
+  const handleReset = () => {
+    setTermA("");
+    setTermB("");
   };
   return (
     <div className={classes.root}>
       <Card>
+        {console.log("data", data)}
         <CardHeader
           title="Interest Over Time"
           titleTypographyProps={{ variant: "h6" }}
-          subheader="Given a single term, what is the interest of the term over 2020?"
+          subheader="Given a single term, what is the interest of the term over 2020? Select from the word cloud or query below!"
         />
         <CardContent>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              type="text"
+              placeholder="Example: Black Friday"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+              onKeyPress={keyPress}
+            />
           </div>
-          <InputBase
-            type="text"
-            placeholder="Example: Black Friday"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ "aria-label": "search" }}
-            onKeyPress={keyPress}
-          />
-        </div>
-        {console.log("query", queryTerm)}
-          <Typography variant="subtitle2" className={classes.subtitle}>Current Search Term <span className={classes.queryTerm}>{"[ "}{queryTerm}{" ]"}</span></Typography>
-        <div className={classes.chartArea}>
-          <ResponsiveContainer width="100%" height={325}>
-            <LineChart
-              width={800}
-              height={400}
-              data={data}
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          {console.log("query", queryTerm)}
+          <Typography variant="subtitle2" className={classes.subtitle}>
+            Current Search Term{" "}
+            <span className={classes.queryTerm}>
+              {"[ "}
+              {queryTerm}
+              {" ]"}
+            </span>
+          </Typography>
+          <div className={classes.chartArea}>
+            <ResponsiveContainer width="100%" height={325}>
+              <LineChart
+                width={800}
+                height={400}
+                data={data}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+              >
+                <XAxis dataKey="time" />
+                <YAxis />
+                <CartesianGrid strokeDasharray="3 3" />
+                <Tooltip />
+                <Legend />
+                <Line
+                  connectNulls={true}
+                  type="monotone"
+                  dataKey="search volume"
+                  stroke="#8884d8"
+                  activeDot={{ r: 8 }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </CardContent>
+        <CardHeader
+          title="Compare a pair of terms"
+          titleTypographyProps={{ variant: "h6" }}
+          subheader="Looking for something to compare? Specify two terms and compare their trending over the year"
+        />
+        <CardContent>
+          {console.log(comparisonData)}
+          <form className={classes.formRoot} noValidate autoComplete="off">
+            <TextField
+              id="standard-basic"
+              label="Term A"
+              onChange={(event) => setTermA(event.target.value)}
+            />
+            <TextField
+              id="standard-basic"
+              label="Term B"
+              onChange={(event) => setTermB(event.target.value)}
+            />
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={() => fetchComparison()}
             >
-              <XAxis dataKey="time" />
-              <YAxis />
-              <CartesianGrid strokeDasharray="3 3" />
-              <Tooltip />
-              <Legend />
-              <Line
-                connectNulls={true}
-                type="monotone"
-                dataKey="search volume"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+              Confirm
+            </Button>
+            <Button variant="outlined" onClick={() => handleReset()}>
+              Reset
+            </Button>
+          </form>
+          {termA === "" && termB === "" ? (
+            <p>You haven't add a pair to compare yet!</p>
+          ) : (
+            <div className={classes.chartArea}>
+              <ResponsiveContainer width="100%" height={325}>
+                <LineChart
+                  width={800}
+                  height={400}
+                  data={comparisonData}
+                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                >
+                  <XAxis dataKey="time" />
+                  <YAxis />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <Tooltip />
+                  <Legend />
+                  <Line
+                    connectNulls={true}
+                    type="monotone"
+                    dataKey={termA}
+                    stroke="#8884d8"
+                  />
+                  <Line
+                    connectNulls={true}
+                    type="monotone"
+                    dataKey={termB}
+                    stroke="#82ca9d"
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
@@ -131,11 +233,18 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "0.2em",
   },
   queryTerm: {
-    color: '#c75200',
+    color: "#c75200",
     fontWeight: 800,
   },
   subtitle: {
     marginBottom: "1rem",
-  }
+  },
+  formRoot: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+    display: "flex",
+  },
 }));
 export default OneTermTrend;
